@@ -76,5 +76,77 @@
             <ul id="tasks"></ul>
         </section>
     </main>
+    <script type="module">
+        const API = 'http://localhost:3000';
+        function escapeHtml(s) {
+            return s.replace(/[&<>"']/g, m => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[m]));
+        }
+
+        async function loadTasks() {
+            const ul = document.getElementById('tasks');
+            try {
+                const r = await fetch(`${API}/tasks`);
+                const tasks = await r.json();
+                ul.innerHTML = tasks.map(t => `
+          <li data-id="${t.id}" class="${t.completed ? 'completed' : ''}">
+            <span class="title">${escapeHtml(t.title)}</span>
+            <button type="button" class="delete-btn" aria-label="Eliminar">Eliminar</button>
+          </li>
+        `).join('');
+            } catch (e) {
+                console.error('loadTasks error:', e);
+            }
+        }
+
+        async function addTask(title) {
+            try {
+                await fetch(`${API}/tasks`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title })
+                });
+                await loadTasks();
+            } catch (e) {
+                console.error('addTask error:', e);
+            }
+        }
+        async function toggleTask(id, completed) {
+            try {
+                await fetch(`${API}/tasks/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ completed })
+                });
+                await loadTasks();
+            } catch (e) { console.error('toggleTask error:', e); }
+        }
+
+        async function deleteTask(id) {
+            try {
+                await fetch(`${API}/tasks/${id}`, { method: 'DELETE' });
+                await loadTasks();
+            } catch (e) { console.error('deleteTask error:', e); }
+        }
+
+        document.getElementById('form')?.addEventListener('submit', e => {
+            e.preventDefault();
+            const input = document.getElementById('title');
+            const v = input.value.trim();
+            if (v) addTask(v);
+            input.value = '';
+        });
+
+        document.getElementById('tasks')?.addEventListener('click', e => {
+            const li = e.target.closest('li[data-id]');
+            if (!li) return;
+            const id = li.getAttribute('data-id');
+            if (e.target.classList.contains('delete-btn')) deleteTask(id);
+            else toggleTask(id, !li.classList.contains('completed'));
+        });
+
+        loadTasks();
+    </script>
 </body>
 </html>
