@@ -1,0 +1,53 @@
+# --- Dependencias de Node ---
+node_modules/
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+debug.log
+logs/
+*.log
+*.log.*
+
+# --- Variables de entorno ---
+.env
+.env.*.local
+*.env
+*.env.*
+
+# --- Builds / Coverage ---
+dist/
+build/
+coverage/
+.cache/
+.next/
+out/
+.vite/
+
+# --- Archivos del SO ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.Trash-*
+.nfs*
+
+# --- Editores/IDE ---
+.vscode/
+.idea/
+*.iml
+
+# --- Otros binarios temporales ---
+*.pid
+*.seed
+*.tgz
