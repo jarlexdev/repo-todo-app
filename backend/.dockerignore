@@ -1,0 +1,25 @@
+# Dependencias locales y cache
+node_modules
+npm-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# Control de versiones / IDE
+.git
+.gitignore
+.vscode
+.idea
+
+# SO / basura
+.DS_Store
+Thumbs.db
+
+# Entorno / secretos
+.env
+*.env
+*.env.*
+
+# Tests, docs
+coverage
+__tests__
+docs
