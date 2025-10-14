@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>todo-app</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 12px;
+        }
+
+        .card {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+        }
+
+        #title {
+            flex: 1;
+        }
+
+        ul#tasks {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul#tasks li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        ul#tasks li.completed .title {
+            opacity: .6;
+            text-decoration: line-through;
+        }
+
+        .delete-btn {
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>todo-app</h1>
+
+        <section class="card" aria-labelledby="nueva-tarea-title">
+            <h3 id="nueva-tarea-title">Nueva tarea</h3>
+            <form id="form" class="row">
+                <input id="title" type="text" placeholder="Nueva tarea…" required />
+                <button id="addBtn" type="submit">Agregar</button>
+            </form>
+        </section>
+
+        <section style="margin-top:16px" aria-labelledby="listado-title">
+            <h3 id="listado-title">Listado</h3>
+            <ul id="tasks"></ul>
+        </section>
+    </main>
+</body>
+</html>
