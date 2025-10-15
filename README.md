@@ -9,6 +9,7 @@ Esta es una aplicación la cual nos permite gestionar tareas de manera sencilla 
 - **Backend (Node/Express):** expone la API REST `/tasks`.
 - **Base de datos (PostgreSQL):** almacenamiento relacional de tareas.
 - **Docker Compose:** define y conecta los servicios `frontend`, `backend` y `db` dentro de una red interna.
+- **Diagrama:**
 
 ## Tecnologías 
 - **Backend:** Node.js + Express + PostgreSQL 
@@ -96,8 +97,11 @@ todo-app/
 **GET /health**
 
 **Descripción:** Verifica que el servicio esté arriba y que la base de datos sea accesible (consulta SELECT 1).
+
 **Input (Request Body): —**
+
 **Output (Response Body):**
+
 **200 OK (servicio y BD operativos)**
 ```json
 { 
@@ -109,8 +113,11 @@ todo-app/
 **GET /tasks**
 
 **Descripción:** Obtiene todas las tareas.
+
 **Input (Request Body): —**
+
 **Output (Response Body):** Array de task.
+
 **Status:** 200 OK
 ```json
 [
@@ -126,6 +133,7 @@ todo-app/
 **POST /tasks**
 
 **Descripción:** Crea una nueva tarea.
+
 **Input (Request Body):**
 ```json
 {
@@ -133,10 +141,13 @@ todo-app/
 }
 ```
 **Output (Response Body):** Objeto task creado.
+
 **Status:** 201 Created
 
 **PUT /tasks/:id**
+
 **Descripción:** Actualiza el estado de una tarea.
+
 **Input (Request Body):**
 ```json
 {
@@ -144,13 +155,17 @@ todo-app/
 }
 ```
 **Output (Response Body):** Objeto task actualizado.
+
 **Status:** 200 OK
 
 **DELETE /tasks/:id**
 
 **Descripción:** Elimina una tarea.
+
 **Input (Request Body): —**
+
 **Output (Response Body): —**
+
 **Status:** 204 No Content
 
 ## Autores 
