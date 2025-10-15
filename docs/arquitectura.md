@@ -13,7 +13,7 @@
 
 ## Arquitectura de componentes
 
-[![Diagrama de arquitectura](https://drive.google.com/file/d/16-z0LNK68KCI_j2UrowVroO_mOoJLrVp/view?usp=sharing)
+[![Diagrama de arquitectura](https://drive.google.com/uc?export=view&id=16-z0LNK68KCI_j2UrowVroO_mOoJLrVp)](https://drive.google.com/file/d/16-z0LNK68KCI_j2UrowVroO_mOoJLrVp/view?usp=sharing)
 
 **Descripción breve:**
 - **Frontend (Nginx)**: sirve `index.html` y recursos estáticos.
@@ -22,7 +22,7 @@
 
 ## Arquitectura de contenedores
 
-[![Diagrama de contenedores](https://drive.google.com/file/d/19G1SA-ovkw668pdbC5HCkrQENM_l-IdP/view?usp=sharing)
+[![Diagrama de contenedores](https://drive.google.com/uc?export=view&id=19G1SA-ovkw668pdbC5HCkrQENM_l-IdP)](https://drive.google.com/file/d/19G1SA-ovkw668pdbC5HCkrQENM_l-IdP/view?usp=sharing)
 
 **Descripción breve:**
 - Los tres servicios comparten la red por defecto creada por Compose aunque se puede poner un nombre de red explicito, por ejemplo: `app-net`.
